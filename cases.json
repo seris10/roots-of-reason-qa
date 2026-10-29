@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "SYNC-01",
+      "slug": "document-sync",
+      "title": "Preserving unsent work across document revisions",
+      "minimum_tests": 9,
+      "before_counterexample": "serialize, reload, pull and save cannot overwrite a newer remote edit",
+      "regression_counterexample": "serialize, reload, pull and save cannot overwrite a newer remote edit",
+      "smoke": true
+    },
+    {
+      "id": "DATA-01",
+      "slug": "upload-integrity",
+      "title": "Reading back every promised upload copy",
+      "minimum_tests": 10,
+      "before_counterexample": "a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope",
+      "regression_counterexample": "an acknowledged but truncated copy cannot produce a complete-redundancy receipt"
+    },
+    {
+      "id": "OPS-01",
+      "slug": "bounded-escalation",
+      "title": "Bounding escalation when session discovery fails",
+      "minimum_tests": 8,
+      "before_counterexample": "eight drains cannot launch more than three unidentified sessions; undelivered work stays visible",
+      "regression_counterexample": "an unavailable inventory is not an empty inventory and cannot authorize a launch"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "roots-of-reason-qa",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Synthetic, offline QA reconstructions with refutation controls and source-bound evidence.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=26.13.0 <27"
+  },
+  "scripts": {
+    "test": "node --test scripts/receipt.test.mjs && node scripts/reproduce.mjs",
+    "evidence": "node scripts/reproduce.mjs --out evidence",
+    "check:evidence": "node scripts/check-evidence.mjs evidence",
+    "check:public": "node scripts/check-public.mjs",
+    "build:portfolio": "node scripts/build-portfolio.mjs",
+    "check:portfolio": "node scripts/check-portfolio.mjs"
+  }
+}
