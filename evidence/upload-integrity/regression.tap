@@ -1,0 +1,104 @@
+TAP version 13
+# Subtest: the measured envelope matches literal serialized JSON, including delimiters
+ok 1 - the measured envelope matches literal serialized JSON, including delimiters
+  ---
+  duration_ms: 0.394625
+  type: 'test'
+  ...
+# Subtest: the modeled RPC accepts its exact byte limit and rejects one byte less atomically
+ok 2 - the modeled RPC accepts its exact byte limit and rejects one byte less atomically
+  ---
+  duration_ms: 0.437084
+  type: 'test'
+  ...
+# Subtest: a small accepted upload can be read independently from every required store
+ok 3 - a small accepted upload can be read independently from every required store
+  ---
+  duration_ms: 2.740708
+  type: 'test'
+  ...
+# Subtest: a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope
+ok 4 - a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope
+  ---
+  duration_ms: 335.848417
+  type: 'test'
+  ...
+# Subtest: an original over 20 MB reassembles in order without silent truncation
+ok 5 - an original over 20 MB reassembles in order without silent truncation
+  ---
+  duration_ms: 383.429084
+  type: 'test'
+  ...
+# Subtest: one failed store preserves surviving originals and reports degraded redundancy
+ok 6 - one failed store preserves surviving originals and reports degraded redundancy
+  ---
+  duration_ms: 1.929542
+  type: 'test'
+  ...
+# Subtest: an acknowledged but truncated copy cannot produce a complete-redundancy receipt
+not ok 7 - an acknowledged but truncated copy cannot produce a complete-redundancy receipt
+  ---
+  duration_ms: 1.055458
+  type: 'test'
+  location: '<repository>/cases/upload-integrity/acceptance.test.mjs:92:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'complete'
+    - 'degraded'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'degraded'
+  actual: 'complete'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/upload-integrity/acceptance.test.mjs:98:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a partial part-set is not mistaken for a durable original
+ok 8 - a partial part-set is not mistaken for a durable original
+  ---
+  duration_ms: 15.975
+  type: 'test'
+  ...
+# Subtest: all-store failure retains the draft and creates no successful evidence receipt
+ok 9 - all-store failure retains the draft and creates no successful evidence receipt
+  ---
+  duration_ms: 0.488125
+  type: 'test'
+  ...
+# Subtest: unreadable acknowledgements cannot establish saved bytes
+not ok 10 - unreadable acknowledgements cannot establish saved bytes
+  ---
+  duration_ms: 0.287
+  type: 'test'
+  location: '<repository>/cases/upload-integrity/acceptance.test.mjs:127:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/upload-integrity/acceptance.test.mjs:132:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 8
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 793.456167

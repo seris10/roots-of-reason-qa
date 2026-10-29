@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-29T22:45:49.536Z",
+  "source_sha256": "6a2a2949d73b5bfead994331eca0532ccd15b55a2853e083ad90c554c7f5356a",
+  "cases": 3,
+  "variants_per_case": 3,
+  "runs": [
+    {
+      "case_id": "SYNC-01",
+      "slug": "document-sync",
+      "variant": "before",
+      "tests": 9,
+      "pass": 5,
+      "fail": 4,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "an unsent local edit and a newer remote edit remain an explicit conflict",
+        "serialize, reload, pull and save cannot overwrite a newer remote edit",
+        "an explicit conflict resolution is required before replacing remote text",
+        "a second remote change refuses a stale explicit resolution"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "an unsent local edit and a newer remote edit remain an explicit conflict",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "serialize, reload, pull and save cannot overwrite a newer remote edit",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "an explicit conflict resolution is required before replacing remote text",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "a second remote change refuses a stale explicit resolution",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "SYNC-01",
+      "slug": "document-sync",
+      "variant": "fixed",
+      "tests": 9,
+      "pass": 9,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [],
+      "failure_diagnostics": [],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "SYNC-01",
+      "slug": "document-sync",
+      "variant": "regression",
+      "tests": 9,
+      "pass": 8,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "serialize, reload, pull and save cannot overwrite a newer remote edit"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "serialize, reload, pull and save cannot overwrite a newer remote edit",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "DATA-01",
+      "slug": "upload-integrity",
+      "variant": "before",
+      "tests": 10,
+      "pass": 4,
+      "fail": 6,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope",
+        "an original over 20 MB reassembles in order without silent truncation",
+        "one failed store preserves surviving originals and reports degraded redundancy",
+        "an acknowledged but truncated copy cannot produce a complete-redundancy receipt",
+        "a partial part-set is not mistaken for a durable original",
+        "unreadable acknowledgements cannot establish saved bytes"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "an original over 20 MB reassembles in order without silent truncation",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "one failed store preserves surviving originals and reports degraded redundancy",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "an acknowledged but truncated copy cannot produce a complete-redundancy receipt",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "a partial part-set is not mistaken for a durable original",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "unreadable acknowledgements cannot establish saved bytes",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "DATA-01",
+      "slug": "upload-integrity",
+      "variant": "fixed",
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [],
+      "failure_diagnostics": [],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "DATA-01",
+      "slug": "upload-integrity",
+      "variant": "regression",
+      "tests": 10,
+      "pass": 8,
+      "fail": 2,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "an acknowledged but truncated copy cannot produce a complete-redundancy receipt",
+        "unreadable acknowledgements cannot establish saved bytes"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "an acknowledged but truncated copy cannot produce a complete-redundancy receipt",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "unreadable acknowledgements cannot establish saved bytes",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "OPS-01",
+      "slug": "bounded-escalation",
+      "variant": "before",
+      "tests": 8,
+      "pass": 3,
+      "fail": 5,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "eight drains cannot launch more than three unidentified sessions; undelivered work stays visible",
+        "an unavailable inventory is not an empty inventory and cannot authorize a launch",
+        "restarting after a recorded session receipt reuses that session rather than opening another",
+        "a crash after a launch side effect leaves explicit uncertainty and never launches again automatically",
+        "repeated immediate drains obey backoff rather than exhausting the launch allowance"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "eight drains cannot launch more than three unidentified sessions; undelivered work stays visible",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "an unavailable inventory is not an empty inventory and cannot authorize a launch",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "restarting after a recorded session receipt reuses that session rather than opening another",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "a crash after a launch side effect leaves explicit uncertainty and never launches again automatically",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        },
+        {
+          "name": "repeated immediate drains obey backoff rather than exhausting the launch allowance",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "OPS-01",
+      "slug": "bounded-escalation",
+      "variant": "fixed",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [],
+      "failure_diagnostics": [],
+      "expected_outcome_observed": true
+    },
+    {
+      "case_id": "OPS-01",
+      "slug": "bounded-escalation",
+      "variant": "regression",
+      "tests": 8,
+      "pass": 7,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "failed_test_names": [
+        "an unavailable inventory is not an empty inventory and cannot authorize a launch"
+      ],
+      "failure_diagnostics": [
+        {
+          "name": "an unavailable inventory is not an empty inventory and cannot authorize a launch",
+          "code": "ERR_ASSERTION",
+          "failure_type": "testCodeFailure"
+        }
+      ],
+      "expected_outcome_observed": true
+    }
+  ],
+  "claims": "All corrected variants pass; both faulty variants are refuted by the named acceptance assertion for each case. Expected-red runs are not passing application tests."
+}

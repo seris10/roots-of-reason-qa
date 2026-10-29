@@ -1,0 +1,138 @@
+TAP version 13
+# Subtest: eight drains cannot launch more than three unidentified sessions; undelivered work stays visible
+not ok 1 - eight drains cannot launch more than three unidentified sessions; undelivered work stays visible
+  ---
+  duration_ms: 1.119208
+  type: 'test'
+  location: '<repository>/cases/bounded-escalation/acceptance.test.mjs:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    8 !== 3
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 3
+  actual: 8
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/bounded-escalation/acceptance.test.mjs:14:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: an unavailable inventory is not an empty inventory and cannot authorize a launch
+not ok 2 - an unavailable inventory is not an empty inventory and cannot authorize a launch
+  ---
+  duration_ms: 0.135875
+  type: 'test'
+  location: '<repository>/cases/bounded-escalation/acceptance.test.mjs:23:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    8 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 8
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/bounded-escalation/acceptance.test.mjs:29:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a known empty inventory permits one launch but launch acceptance does not acknowledge delivery
+ok 3 - a known empty inventory permits one launch but launch acceptance does not acknowledge delivery
+  ---
+  duration_ms: 0.303084
+  type: 'test'
+  ...
+# Subtest: restarting after a recorded session receipt reuses that session rather than opening another
+not ok 4 - restarting after a recorded session receipt reuses that session rather than opening another
+  ---
+  duration_ms: 0.087542
+  type: 'test'
+  location: '<repository>/cases/bounded-escalation/acceptance.test.mjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/bounded-escalation/acceptance.test.mjs:54:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a crash after a launch side effect leaves explicit uncertainty and never launches again automatically
+not ok 5 - a crash after a launch side effect leaves explicit uncertainty and never launches again automatically
+  ---
+  duration_ms: 0.204292
+  type: 'test'
+  location: '<repository>/cases/bounded-escalation/acceptance.test.mjs:60:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/bounded-escalation/acceptance.test.mjs:66:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: repeated immediate drains obey backoff rather than exhausting the launch allowance
+not ok 6 - repeated immediate drains obey backoff rather than exhausting the launch allowance
+  ---
+  duration_ms: 0.091958
+  type: 'test'
+  location: '<repository>/cases/bounded-escalation/acceptance.test.mjs:72:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    8 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 8
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/bounded-escalation/acceptance.test.mjs:75:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a missing acknowledgement preserves work even when the recipient already received the event
+ok 7 - a missing acknowledgement preserves work even when the recipient already received the event
+  ---
+  duration_ms: 0.068708
+  type: 'test'
+  ...
+# Subtest: an acknowledgement naming another event cannot mark this event delivered
+ok 8 - an acknowledgement naming another event cannot mark this event delivered
+  ---
+  duration_ms: 0.056667
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 3
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 43.835625

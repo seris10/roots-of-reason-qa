@@ -1,0 +1,20 @@
+{
+  "caseId": "SYNC-01",
+  "reconstruction": "synthetic state-machine example; no application or browser data",
+  "variant": "fixed",
+  "beforeReload": {
+    "mode": "conflict",
+    "localText": "Unsent first-device draft",
+    "remoteText": "New second-device note"
+  },
+  "afterReload": {
+    "mode": "conflict",
+    "localText": "Unsent first-device draft"
+  },
+  "attemptedSave": "conflict",
+  "storedDocument": {
+    "revision": 2,
+    "text": "New second-device note"
+  },
+  "acceptedWrites": 1
+}

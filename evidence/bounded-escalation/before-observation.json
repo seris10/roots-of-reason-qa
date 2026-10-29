@@ -1,0 +1,25 @@
+{
+  "caseId": "OPS-01",
+  "kind": "synthetic reconstruction",
+  "variant": "before",
+  "clock": "deterministic virtual milliseconds",
+  "observations": {
+    "unidentified_session": {
+      "drains": 8,
+      "sessionsLaunched": 8,
+      "durableState": "waiting_for_identity",
+      "undeliveredEvents": 1
+    },
+    "unknown_inventory": {
+      "drains": 8,
+      "sessionsLaunched": 8,
+      "durableState": "waiting_for_identity",
+      "undeliveredEvents": 1
+    },
+    "restart_after_receipt": {
+      "sessionsLaunched": 2,
+      "recipientCopies": 0,
+      "undeliveredEvents": 1
+    }
+  }
+}

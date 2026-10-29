@@ -1,0 +1,136 @@
+{
+  "caseId": "DATA-01",
+  "evidenceClass": "new offline synthetic reconstruction",
+  "variant": "regression",
+  "model": "JSON numeric-byte arrays in a bounded RPC envelope; no Cloudflare service invoked",
+  "largeOriginal": {
+    "bytes": 9549126,
+    "sha256": "9fa0d3a28bdde77c7095a250ee319f35ef70d612f3bac6120438a70d1f95d3d2",
+    "aggregateEnvelopeBytes": 34094005,
+    "limitBytes": 33554432,
+    "receipt": {
+      "key": "synthetic-large-object",
+      "saved": true,
+      "redundancy": "complete",
+      "copies": 3,
+      "copiesRequired": 3,
+      "acknowledgement": "received",
+      "alert": "upload-saved",
+      "draftRetained": false,
+      "evidenceRecordCreated": true
+    },
+    "independentReadbacks": {
+      "primary": {
+        "readable": true,
+        "bytes": 9549126,
+        "sha256": "9fa0d3a28bdde77c7095a250ee319f35ef70d612f3bac6120438a70d1f95d3d2",
+        "matchesOriginal": true
+      },
+      "secondary": {
+        "readable": true,
+        "bytes": 9549126,
+        "sha256": "9fa0d3a28bdde77c7095a250ee319f35ef70d612f3bac6120438a70d1f95d3d2",
+        "matchesOriginal": true
+      },
+      "parts": {
+        "readable": true,
+        "bytes": 9549126,
+        "sha256": "9fa0d3a28bdde77c7095a250ee319f35ef70d612f3bac6120438a70d1f95d3d2",
+        "matchesOriginal": true
+      }
+    },
+    "rpcRequests": [
+      {
+        "encodedBytes": 3570395,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570390,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570385,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570392,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570395,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570390,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570385,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570392,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 3570395,
+        "parts": 1,
+        "accepted": true
+      },
+      {
+        "encodedBytes": 1960630,
+        "parts": 1,
+        "accepted": true
+      }
+    ]
+  },
+  "acknowledgedTruncation": {
+    "bytes": 8192,
+    "receipt": {
+      "key": "synthetic-truncation",
+      "saved": true,
+      "redundancy": "complete",
+      "copies": 3,
+      "copiesRequired": 3,
+      "acknowledgement": "received",
+      "alert": "upload-saved",
+      "draftRetained": false,
+      "evidenceRecordCreated": true
+    },
+    "independentReadbacks": {
+      "primary": {
+        "readable": true,
+        "bytes": 8192,
+        "sha256": "b80991a069a66b73ce49fafd2ec11c9e9b65180b71f46d08add4055fe37c6da4",
+        "matchesOriginal": true
+      },
+      "secondary": {
+        "readable": true,
+        "bytes": 8192,
+        "sha256": "b80991a069a66b73ce49fafd2ec11c9e9b65180b71f46d08add4055fe37c6da4",
+        "matchesOriginal": true
+      },
+      "parts": {
+        "readable": true,
+        "bytes": 8191,
+        "sha256": "814adf832cac2c50c5477380d8cb64616bd0195ee7796db892f489fb057adec5",
+        "matchesOriginal": false
+      }
+    }
+  },
+  "notTested": [
+    "actual D1 serialization or quotas",
+    "real object storage",
+    "image processing",
+    "email or notification delivery",
+    "live production behavior"
+  ]
+}

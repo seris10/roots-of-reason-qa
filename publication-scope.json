@@ -2,6 +2,7 @@
   "schema_version": 1,
   "purpose": "Explicitly reviewed synthetic public packet; excludes the private audit, logs, assets and credentials.",
   "files": [
+    ".gitattributes",
     ".github/workflows/reproduce.yml",
     ".gitignore",
     ".node-version",

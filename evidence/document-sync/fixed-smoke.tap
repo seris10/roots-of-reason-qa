@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: one device can save a local edit when no other device changes the document
+ok 1 - one device can save a local edit when no other device changes the document
+  ---
+  duration_ms: 0.541333
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 50.165458

@@ -1,0 +1,144 @@
+TAP version 13
+# Subtest: an unsent local edit and a newer remote edit remain an explicit conflict
+not ok 1 - an unsent local edit and a newer remote edit remain an explicit conflict
+  ---
+  duration_ms: 1.594166
+  type: 'test'
+  location: '<repository>/cases/document-sync/acceptance.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'ready'
+    - 'conflict'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'conflict'
+  actual: 'ready'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:26:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: serialize, reload, pull and save cannot overwrite a newer remote edit
+not ok 2 - serialize, reload, pull and save cannot overwrite a newer remote edit
+  ---
+  duration_ms: 0.246375
+  type: 'test'
+  location: '<repository>/cases/document-sync/acceptance.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'saved'
+    - 'conflict'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'conflict'
+  actual: 'saved'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:40:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a clean local copy adopts a newer remote document and survives reload
+ok 3 - a clean local copy adopts a newer remote document and survives reload
+  ---
+  duration_ms: 0.133958
+  type: 'test'
+  ...
+# Subtest: a failed write retains the original draft and retry writes it once
+ok 4 - a failed write retains the original draft and retry writes it once
+  ---
+  duration_ms: 0.133458
+  type: 'test'
+  ...
+# Subtest: a lost acknowledgement survives reload without a duplicate revision
+ok 5 - a lost acknowledgement survives reload without a duplicate revision
+  ---
+  duration_ms: 0.124
+  type: 'test'
+  ...
+# Subtest: an explicit conflict resolution is required before replacing remote text
+not ok 6 - an explicit conflict resolution is required before replacing remote text
+  ---
+  duration_ms: 0.238167
+  type: 'test'
+  location: '<repository>/cases/document-sync/acceptance.test.mjs:88:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Got unwanted exception.
+    Actual message: "conflict_context_required"
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+  error: 'conflict_context_required'
+  stack: |-
+    Object.resolveConflict (file://<repository>/cases/document-sync/model.mjs:100:87)
+    file://<repository>/cases/document-sync/acceptance.test.mjs:93:36
+    getActual (node:assert:580:5)
+    strict.doesNotThrow (node:assert:748:32)
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:93:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  operator: 'doesNotThrow'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:93:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a second remote change refuses a stale explicit resolution
+not ok 7 - a second remote change refuses a stale explicit resolution
+  ---
+  duration_ms: 0.173667
+  type: 'test'
+  location: '<repository>/cases/document-sync/acceptance.test.mjs:99:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Got unwanted exception.
+    Actual message: "conflict_context_required"
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+  error: 'conflict_context_required'
+  stack: |-
+    Object.resolveConflict (file://<repository>/cases/document-sync/model.mjs:100:87)
+    file://<repository>/cases/document-sync/acceptance.test.mjs:104:36
+    getActual (node:assert:580:5)
+    strict.doesNotThrow (node:assert:748:32)
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:104:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  operator: 'doesNotThrow'
+  stack: |-
+    TestContext.<anonymous> (file://<repository>/cases/document-sync/acceptance.test.mjs:104:10)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: a failed read preserves the durable draft instead of substituting an empty document
+ok 8 - a failed read preserves the durable draft instead of substituting an empty document
+  ---
+  duration_ms: 0.085417
+  type: 'test'
+  ...
+# Subtest: a late save acknowledgement does not mark a newer local edit as saved
+ok 9 - a late save acknowledgement does not mark a newer local edit as saved
+  ---
+  duration_ms: 0.44425
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 5
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 46.810416

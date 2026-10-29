@@ -1,0 +1,2 @@
+# Preserve captured Node TAP diagnostic whitespace without applying source-style checks to logs.
+evidence/**/*.tap whitespace=-blank-at-eol

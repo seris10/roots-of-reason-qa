@@ -1,0 +1,20 @@
+{
+  "caseId": "SYNC-01",
+  "reconstruction": "synthetic state-machine example; no application or browser data",
+  "variant": "regression",
+  "beforeReload": {
+    "mode": "conflict",
+    "localText": "Unsent first-device draft",
+    "remoteText": "New second-device note"
+  },
+  "afterReload": {
+    "mode": "ready",
+    "localText": "Unsent first-device draft"
+  },
+  "attemptedSave": "saved",
+  "storedDocument": {
+    "revision": 3,
+    "text": "Unsent first-device draft"
+  },
+  "acceptedWrites": 2
+}
