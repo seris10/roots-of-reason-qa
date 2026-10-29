@@ -3,8 +3,8 @@
   "case_id": "OPS-01",
   "variant": "regression",
   "evidence_class": "new offline synthetic reconstruction",
-  "started_at_utc": "2026-10-29T22:45:49.423Z",
-  "completed_at_utc": "2026-10-29T22:45:49.535Z",
+  "started_at_utc": "2026-10-29T22:49:47.052Z",
+  "completed_at_utc": "2026-10-29T22:49:47.182Z",
   "runtime": {
     "node": "v26.13.0",
     "platform": "darwin",
@@ -18,8 +18,8 @@
     "cases/bounded-escalation/acceptance.test.mjs"
   ],
   "source": {
-    "commit": "1f746f72a1dd931579ddea41fb33a7d18fe719b7",
-    "sha256": "6a2a2949d73b5bfead994331eca0532ccd15b55a2853e083ad90c554c7f5356a",
+    "commit": "9f5f973134127c2569c7b7eab4d45d993a07ded1",
+    "sha256": "966ed1a08d8d045be7782bf929b5b6779ae5d5fcd32fbc14acb5ec7178fea06a",
     "files": {
       ".node-version": "6e775beae185bb3f5837d2f6d3fbe910e6f60e18fa507e661e312e84d707a92f",
       "cases.json": "606014d870dc9039f114ab5f4b1efe9ffbe742d92634e9d42a0b83833917cdd9",
@@ -34,13 +34,13 @@
       "cases/upload-integrity/demo.mjs": "7ffa59b6150621d47b7afee64d57c40b789ec9f985db2f5b8dcfc355658e367a",
       "cases/upload-integrity/model.mjs": "5a9c4067a16c405c3e8a2e8d68a3d42e00381031a2ebe0a21741291aa650fb04",
       "package.json": "7c95163cee906c42a19e04d02d8155633e4768375d553a73cd47832b7a6278cb",
-      "scripts/build-portfolio.mjs": "43754873790c0a66fb5c23aa95e2ecf51561f627ca6d10749e23855105991b5e",
-      "scripts/check-evidence.mjs": "8dda4b3661028fc60dfbd897ada04c59d3b3d180fd2aefe701fbb165ecae29ed",
-      "scripts/check-portfolio.mjs": "e74bb486ff4c85dfbc0d101a9402ebbc314c372339c39be1c460bcd3c26106ef",
+      "scripts/build-portfolio.mjs": "529cf869d687ec18bf7fea38686aedbf3250fd5d0e2608b53e67ac1d79b1b8fb",
+      "scripts/check-evidence.mjs": "445c61512f1578c908f149f5a2bb1b04bcb0557d0ea2bfa8e167f288cf00227d",
+      "scripts/check-portfolio.mjs": "c11ebb37828d828047faf7cc6043eb0e3f9902521993f740e7cdd07fae273bd0",
       "scripts/check-public.mjs": "c05c8afd61022fbdf8125520fa23e5315c253d8c1c399e252ca9dbc4df5fd217",
-      "scripts/receipt.mjs": "ef2cf968a56788b2d44d62235519982c8c081a1402eb00252afae03f1698ae3d",
+      "scripts/receipt.mjs": "f0a560e2bac3d7d954f5437f33710db4cf46dcd15189d15b4318c296831db54b",
       "scripts/receipt.test.mjs": "fff46ca41cca4f678113a13d38da252b861349a0edf34ccb88ea0d460eb4e414",
-      "scripts/reproduce.mjs": "730b2f3ca750b600fc76d9a4382cb67f97b7fa0fae0443b8f7e1a50ce91692e7"
+      "scripts/reproduce.mjs": "372cbb435019baa1625ffce9423559293c0729b252961c2119816a30fb9192ff"
     }
   },
   "source_unchanged_during_run": true,
@@ -65,7 +65,7 @@
   "exit_code": 1,
   "signal": null,
   "interpretation": "expected counterexample refuted the faulty variant",
-  "log_sha256": "dd50163fef1fb8670572fc83d8aa2a6f307707718de59337e37345c056b72889",
+  "log_sha256": "b4a3901ad5e22a3f242f9180e27a841d9dc65f8bc48442e30f78ab4059460f65",
   "observation_sha256": "715473993421d2a4c1c8678de65ab733f9477b71ff71cb83bf76c694dda5cdbd",
   "not_tested": [
     "original application code",

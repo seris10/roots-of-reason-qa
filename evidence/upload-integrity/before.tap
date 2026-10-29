@@ -2,25 +2,25 @@ TAP version 13
 # Subtest: the measured envelope matches literal serialized JSON, including delimiters
 ok 1 - the measured envelope matches literal serialized JSON, including delimiters
   ---
-  duration_ms: 0.392708
+  duration_ms: 0.470125
   type: 'test'
   ...
 # Subtest: the modeled RPC accepts its exact byte limit and rejects one byte less atomically
 ok 2 - the modeled RPC accepts its exact byte limit and rejects one byte less atomically
   ---
-  duration_ms: 0.457375
+  duration_ms: 0.550166
   type: 'test'
   ...
 # Subtest: a small accepted upload can be read independently from every required store
 ok 3 - a small accepted upload can be read independently from every required store
   ---
-  duration_ms: 2.765084
+  duration_ms: 3.657709
   type: 'test'
   ...
 # Subtest: a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope
 not ok 4 - a 9.55 MB original has all three complete readbacks despite an oversized aggregate envelope
   ---
-  duration_ms: 347.701
+  duration_ms: 399.781708
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:52:1'
   failureType: 'testCodeFailure'
@@ -38,7 +38,7 @@ not ok 4 - a 9.55 MB original has all three complete readbacks despite an oversi
 # Subtest: an original over 20 MB reassembles in order without silent truncation
 not ok 5 - an original over 20 MB reassembles in order without silent truncation
   ---
-  duration_ms: 522.812708
+  duration_ms: 599.212167
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:68:1'
   failureType: 'testCodeFailure'
@@ -60,7 +60,7 @@ not ok 5 - an original over 20 MB reassembles in order without silent truncation
 # Subtest: one failed store preserves surviving originals and reports degraded redundancy
 not ok 6 - one failed store preserves surviving originals and reports degraded redundancy
   ---
-  duration_ms: 0.486042
+  duration_ms: 0.688417
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:79:1'
   failureType: 'testCodeFailure'
@@ -84,7 +84,7 @@ not ok 6 - one failed store preserves surviving originals and reports degraded r
 # Subtest: an acknowledged but truncated copy cannot produce a complete-redundancy receipt
 not ok 7 - an acknowledged but truncated copy cannot produce a complete-redundancy receipt
   ---
-  duration_ms: 0.330542
+  duration_ms: 0.564625
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:92:1'
   failureType: 'testCodeFailure'
@@ -108,7 +108,7 @@ not ok 7 - an acknowledged but truncated copy cannot produce a complete-redundan
 # Subtest: a partial part-set is not mistaken for a durable original
 not ok 8 - a partial part-set is not mistaken for a durable original
   ---
-  duration_ms: 16.601208
+  duration_ms: 17.104875
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:103:1'
   failureType: 'testCodeFailure'
@@ -125,13 +125,13 @@ not ok 8 - a partial part-set is not mistaken for a durable original
 # Subtest: all-store failure retains the draft and creates no successful evidence receipt
 ok 9 - all-store failure retains the draft and creates no successful evidence receipt
   ---
-  duration_ms: 0.523041
+  duration_ms: 0.487
   type: 'test'
   ...
 # Subtest: unreadable acknowledgements cannot establish saved bytes
 not ok 10 - unreadable acknowledgements cannot establish saved bytes
   ---
-  duration_ms: 0.260333
+  duration_ms: 0.259083
   type: 'test'
   location: '<repository>/cases/upload-integrity/acceptance.test.mjs:127:1'
   failureType: 'testCodeFailure'
@@ -158,4 +158,4 @@ not ok 10 - unreadable acknowledgements cannot establish saved bytes
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 945.362792
+# duration_ms 1083.644959

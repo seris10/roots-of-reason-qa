@@ -2,13 +2,13 @@ TAP version 13
 # Subtest: an unsent local edit and a newer remote edit remain an explicit conflict
 ok 1 - an unsent local edit and a newer remote edit remain an explicit conflict
   ---
-  duration_ms: 0.965375
+  duration_ms: 0.953709
   type: 'test'
   ...
 # Subtest: serialize, reload, pull and save cannot overwrite a newer remote edit
 not ok 2 - serialize, reload, pull and save cannot overwrite a newer remote edit
   ---
-  duration_ms: 0.934833
+  duration_ms: 0.562166
   type: 'test'
   location: '<repository>/cases/document-sync/acceptance.test.mjs:32:1'
   failureType: 'testCodeFailure'
@@ -32,43 +32,43 @@ not ok 2 - serialize, reload, pull and save cannot overwrite a newer remote edit
 # Subtest: a clean local copy adopts a newer remote document and survives reload
 ok 3 - a clean local copy adopts a newer remote document and survives reload
   ---
-  duration_ms: 0.410167
+  duration_ms: 0.110875
   type: 'test'
   ...
 # Subtest: a failed write retains the original draft and retry writes it once
 ok 4 - a failed write retains the original draft and retry writes it once
   ---
-  duration_ms: 0.400291
+  duration_ms: 0.114791
   type: 'test'
   ...
 # Subtest: a lost acknowledgement survives reload without a duplicate revision
 ok 5 - a lost acknowledgement survives reload without a duplicate revision
   ---
-  duration_ms: 0.19325
+  duration_ms: 0.135583
   type: 'test'
   ...
 # Subtest: an explicit conflict resolution is required before replacing remote text
 ok 6 - an explicit conflict resolution is required before replacing remote text
   ---
-  duration_ms: 0.467042
+  duration_ms: 0.1595
   type: 'test'
   ...
 # Subtest: a second remote change refuses a stale explicit resolution
 ok 7 - a second remote change refuses a stale explicit resolution
   ---
-  duration_ms: 0.19625
+  duration_ms: 0.1165
   type: 'test'
   ...
 # Subtest: a failed read preserves the durable draft instead of substituting an empty document
 ok 8 - a failed read preserves the durable draft instead of substituting an empty document
   ---
-  duration_ms: 1.091292
+  duration_ms: 0.073542
   type: 'test'
   ...
 # Subtest: a late save acknowledgement does not mark a newer local edit as saved
 ok 9 - a late save acknowledgement does not mark a newer local edit as saved
   ---
-  duration_ms: 0.18825
+  duration_ms: 0.465709
   type: 'test'
   ...
 1..9
@@ -79,4 +79,4 @@ ok 9 - a late save acknowledgement does not mark a newer local edit as saved
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 51.648417
+# duration_ms 47.389875
