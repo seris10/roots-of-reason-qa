@@ -1,13 +1,13 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readCases, variants } from './receipt.mjs';
+import { readCases, variants, artifactStem } from './receipt.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const summary = JSON.parse(readFileSync(join(root, 'evidence/summary.json'), 'utf8'));
 const observations = {};
 for (const item of readCases(root)) {
   observations[item.slug] = {};
-  for (const variant of variants) observations[item.slug][variant] = JSON.parse(readFileSync(join(root, 'evidence', item.slug, `${variant}-observation.json`), 'utf8'));
+  for (const variant of variants) observations[item.slug][variant] = JSON.parse(readFileSync(join(root, 'evidence', item.slug, `${artifactStem(variant)}-observation.json`), 'utf8'));
 }
 const json = JSON.stringify({ summary, observations }).replaceAll('<', '\\u003c');
 const template = readFileSync(join(root, 'portfolio/template.html'), 'utf8');

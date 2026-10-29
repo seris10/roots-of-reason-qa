@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readCases, variants } from './receipt.mjs';
+import { readCases, variants, artifactStem } from './receipt.mjs';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const expected = { summary: JSON.parse(readFileSync(join(root, 'evidence/summary.json'), 'utf8')), observations: {} };
 for (const item of readCases(root)) {
   expected.observations[item.slug] = {};
-  for (const variant of variants) expected.observations[item.slug][variant] = JSON.parse(readFileSync(join(root, 'evidence', item.slug, `${variant}-observation.json`), 'utf8'));
+  for (const variant of variants) expected.observations[item.slug][variant] = JSON.parse(readFileSync(join(root, 'evidence', item.slug, `${artifactStem(variant)}-observation.json`), 'utf8'));
 }
 const html = readFileSync(join(root, 'portfolio/index.html'), 'utf8');
 const blocks = [...html.matchAll(/<script id="case-evidence" type="application\/json">([\s\S]*?)<\/script>/g)];

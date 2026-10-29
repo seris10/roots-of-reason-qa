@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
-import { readCases, variants, sha256, parseTap, assertOutcome, sourceSnapshot, verifySmoke } from './receipt.mjs';
+import { readCases, variants, artifactStem, sha256, parseTap, assertOutcome, sourceSnapshot, verifySmoke } from './receipt.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const args = process.argv.slice(2);
@@ -33,8 +33,8 @@ for (const item of cases) {
     const observation = JSON.parse(demo.stdout);
     if (observation.caseId !== item.id || observation.variant !== variant) throw new Error('demo_identity_mismatch');
     const folder = join(root, destination, item.slug);
-    write(join(folder, `${variant}.tap`), log);
-    write(join(folder, `${variant}-observation.json`), JSON.stringify(observation, null, 2) + '\n');
+    write(join(folder, `${artifactStem(variant)}.tap`), log);
+    write(join(folder, `${artifactStem(variant)}-observation.json`), JSON.stringify(observation, null, 2) + '\n');
     const receipt = {
       schema_version: 1, case_id: item.id, variant, evidence_class: 'new offline synthetic reconstruction',
       started_at_utc: startedAt, completed_at_utc: new Date().toISOString(),
@@ -57,9 +57,9 @@ for (const item of cases) {
       if (smoke.status !== 0 || smokeSummary.tests !== 1 || smokeSummary.pass !== 1 || smokeSummary.fail || smokeSummary.skipped) throw new Error('narrow_smoke_control_failed');
       receipt.smoke = { command: ['node', ...smokeArgs], log_sha256: sha256(smokeLog), assertions: smokeSummary, exit_code: smoke.status, signal: smoke.signal };
       verifySmoke(receipt.smoke, smokeLog);
-      write(join(folder, `${variant}-smoke.tap`), smokeLog);
+      write(join(folder, `${artifactStem(variant)}-smoke.tap`), smokeLog);
     }
-    write(join(folder, `${variant}-receipt.json`), JSON.stringify(receipt, null, 2) + '\n');
+    write(join(folder, `${artifactStem(variant)}-receipt.json`), JSON.stringify(receipt, null, 2) + '\n');
   }
 }
 if (sourceSnapshot(root).sha256 !== startSource.sha256) throw new Error('source_changed_during_matrix');

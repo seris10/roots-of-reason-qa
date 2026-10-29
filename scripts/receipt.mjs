@@ -3,6 +3,7 @@ import { readFileSync, readdirSync, lstatSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 export const variants = Object.freeze(['before', 'fixed', 'regression']);
+export const artifactStem = variant => variant === 'fixed' ? 'after' : variant;
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
 
 export function readCases(root) {
